@@ -1,0 +1,748 @@
+<!doctype html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>高级前端开发工程师面试题和知识点总结</title>
+
+    <link rel="stylesheet" href="styles/document.css">
+
+    <link rel="stylesheet" href="styles/doc/code-color.min.css">
+
+</head>
+<body>
+
+<header class="v-header">
+       == 高级前端开发工程师面试题和知识点总结 ==
+</header>
+
+<main class="main">
+
+    <div class="content">
+        <section>
+            <h1 id="htmlCss">HTML+CSS</h1>
+
+            <div class="doc-wrap">
+
+                <!-- start -->
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">HTML5 为什么只需要写<span></span> <span class="cp">&lt;!DOCTYPE HTML&gt;</span>?</p>
+                    </span>
+                    <div class="example">
+                        <p>HTML5不基于SGML，因此不需要对DTD进行引用，但是需要DOCTYPE来规范浏览器的行为（让浏览器按照他们应该的方式来运行）而HTML4.01基于SGML，所以需要对DTD进行引用，才能告知浏览器文档所使用的文档类型。</p>
+                    </div>
+                </div>
+
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？</p>
+                    </span>
+                    <div class="example">
+                        <p>行内元素：a  b  span  img  input  select  strong</p>
+                        <p>块级元素：div  ul  ol  li  dl  dt  dd  h1  h2  h3  h4  p  等</p>
+                        <p><span></span>空元素：<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>  <span class="p">&lt;</span><span class="nt">hr</span><span class="p">&gt;</span>  <span class="p">&lt;</span><span class="nt">img</span><span class="p">&gt;</span>  <span class="p">&lt;</span><span class="nt">link</span><span class="p">&gt;</span> <span class="p">&lt;</span><span class="nt">meta</span><span class="p">&gt;</span> </p>
+                    </div>
+                </div>
+
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">页面导入样式时，使用link和@import有什么区别？</p>
+                    </span>
+                    <div class="example">
+                        <p>1）link属于XHTML标签，而@import是css提供的；</p>
+                        <p>2）页面被加载时，link会同时被加载，而@import引用的css会等到页面被加载完再加载；</p>
+                        <p>3）@import只在IE5以上才能识别，而link是XHTML标签，无兼容问题；</p>
+                        <p>4）link方式的样式的权重高于@import的权重。</p>
+                    </div>
+                </div>
+
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">html5有哪些新特性、移除了那些元素？如何处理HTML5新标签的浏览器兼容问题？</p>
+                    </span>
+                    <div class="example">
+                        <p>新特性，新增元素：</p>
+                        <p>1）内容元素：article、footer、header、nav、section</p>
+                        <p>2）表单控件：calendar、date、time、email、url、search</p>
+                        <p>3）控件元素：webworker，websockt，Geolocation</p>
+                        <p>移除元素：</p>
+                        <p>1）显现层元素：basefont，big，center，font，s，strike，tt，u</p>
+                        <p>2）性能较差元素：frame，frameset，noframes</p>
+                        <p>处理兼容问题有两种方式：</p>
+                        <p>1）IE6/IE7/IE8支持通过document方法产生的标签，利用这一特性让这些浏览器支持HTML5新标签。</p>
+                        <p>2）使用是html5shim框架</p>
+                        <p>另外，DOCTYPE声明的方式是区分HTML和HTML5标志的一个重要因素，此外，还可以根据新增的结构，功能元素来加以区分。</p>
+                    </div>
+                </div>
+
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">简述一下你对HTML语义化的理解？</p>
+                    </span>
+                    <div class="example">
+                        <p>1）用正确的标签做正确的事情；</p>
+                        <p>2）html语义化让页面的内容结构化，结构更清晰，便于对浏览器、搜索引擎解析；</p>
+                        <p>3）即使在没有样式css情况下也以一种文档格式显示，并且是容易阅读的；</p>
+                        <p>4）搜索引擎的爬虫也依赖于HTML标记来确定上下文和各个关键字的权重，利于SEO；</p>
+                        <p>5）使于都源代码的人对网站更容易将网站分块，便于阅读维护理解。</p>
+                    </div>
+                </div>
+
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">HTML5的离线储存怎么使用，工作原理能不能解释一下？</p>
+                    </span>
+                    <div class="example">
+                        <p>localStorage 长期存储数据，浏览器关闭后数据不丢失；</p>
+                        <p>sessionStorage 数据在浏览器关闭后自动删除。</p>
+                    </div>
+                </div>
+
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">Doctype作用? 严格模式与混杂模式如何区分？它们有何意义?</p>
+                    </span>
+                    <div class="example">
+                        <p>1）<!Doctype>声明位于文档中的最前面，处于 html 标签之前。告知浏览器的解析器，用什么文档类型规范来解析这个文档。</p>
+                        <p>2）严格模式的排版和JS运作模式是以该浏览器支持的最高标准运行。</p>
+                        <p>3）在混杂模式中，页面以宽松的向后兼容的方式显示。模拟老式浏览器的行为以防止站点无法工作。</p>
+                        <p>4）DOCTYPE不存在或格式不正确会导致文档以混杂模式呈现。</p>
+                    </div>
+                </div>
+
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">常见兼容性问题？</p>
+                    </span>
+                    <div class="example">
+                        <p>IE6双边距bug：块属性标签float后，又有横行的 margin 情况下，在 IE6 显示 margin 比设置的大。浮动IE产生的双倍距离 #box{float:left;width:10px;margin:0 0 0 100px;} 这种情况下IE6会产生200px的距离。</p>
+                        <p>解决方法：加上_display：inline，使浮动忽略</p>
+                        <p>Chrome中文界面下默认会将小于 12px 的文本强制按照 12px 显示</p>
+                        <p>解决方法：可通过加入 CSS 属性 -webkt-text-size-adjust:none;解决</p>
+                        <p>超链接访问过后 hover 样式就不出现了，被点击访问过的超链接样式不在具有 hover 和 active  CSS 属性 -webkt-text-size-adjust:none;解决</p>
+                        <p>解决方法：改变CSS属性的排列顺序：L-V-H-A: a:link{ }  a:visited{ } a:hover{ } a:active{ } </p>
+                    </div>
+                </div>
+
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">如何实现浏览器内多个标签页之间的通信？</p>
+                    </span>
+                    <div class="example">
+                        <p>调用localstorge、cookies等本地存储方式 margin 情况下，在 IE6 显示 margin 比设置的大。浮动IE产生的双倍距离 #box{float:left;width:10px;margin:0 0 0 100px;} 这种情况下IE6会产生200px的距离。</p>
+                    </div>
+                </div>
+
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">支持HTML5新标签</p>
+                    </span>
+                    <div class="example">
+                        <p>http://html5shim.googlecode.com/svn/trunk/html5.js</p>
+                    </div>
+                </div>
+
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">介绍一下 CSS 的盒子模型？</p>
+                    </span>
+                    <div class="example">
+                        <p>1）有两种，IE 盒子模型、标准 W3C 盒子模型； IE 的 content 部分包含了 border 和 padding；</p>
+                        <p>2）盒模型：内容（content）、填充（padding）、边界（margin）、边框（border）。</p>
+                    </div>
+                </div>
+
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">CSS 选择符有哪些？哪些属性可以继承？优先级算法如何计算？ CSS3 新增伪类有哪些？</p>
+                    </span>
+                    <div class="example">
+                        <p>1）id 选择器（#myid）</p>
+                        <p>2）类选择器（.myclassname）</p>
+                        <p>3）标签选择器（div，h1，p）</p>
+                        <p>4）相邻选择器（h1 + p）</p>
+                        <p>5）子选择器（ul > li）</p>
+                        <p>6）后代选择器（li a）</p>
+                        <p>7）通配符选择器（* ）</p>
+                        <p>8）属性选择器（ a[rel = "external"]）</p>
+                        <p>9）伪类选择器（a: hover, li: nth - child）</p>
+                    </div>
+                </div>
+
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">可继承的样式</p>
+                    </span>
+                    <div class="example">
+                        <p>font-size font-family color, UL LI DL DD DT</p>
+                    </div>
+                </div>
+
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">不可继承的样式</p>
+                    </span>
+                    <div class="example">
+                        <p>border padding margin width height</p>
+                    </div>
+                </div>
+
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">样式的权重级别</p>
+                    </span>
+                    <div class="example">
+                        <p>优先级为: !important >  id > class > tag  ；   important 比 内联优先级高 </p>
+                    </div>
+                </div>
+
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">CSS3新增伪类举例</p>
+                    </span>
+                    <div class="example">
+                        <p>p:first-of-type   选择属于其父元素的首个 <p> 元素的每个 <p> 元素；</p>
+                        <p>p:last-of-type   选择属于其父元素的最后 <p> 元素的每个 <p> 元素；</p>
+                        <p>p:only-of-type  选择属于其父元素唯一的 <p> 元素的每个 <p> 元素；</p>
+                        <p>p:only-child    选择属于其父元素的唯一子元素的每个 <p> 元素；</p>
+                        <p>p:nth-child(2)  选择属于其父元素的第二个子元素的每个 <p> 元素；</p>
+                        <p>:enabled  :disabled 控制表单控件的禁用状态；</p>
+                        <p>:checked        单选框或复选框被选中。</p>
+                    </div>
+                </div>
+
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">如何居中div？ 如何居中一个浮动元素？</p>
+                    </span>
+                    <div class="example">
+                        <p>给div 设置一个宽度，然后添加 margin:0 auto 属性；div{width:200px; margin:0 auto; }</p>
+                    </div>
+                </div>
+
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">居中一个浮动元素</p>
+                    </span>
+                    <div class="example">
+                        <p>确定容器的宽高  宽500 高300的层，设置层的外边距
+                            .div{width:500px;height:300px;margin:-150px 0 0 -250px;position:relative;background:green；left：50%；top：50%}</p>
+                    </div>
+                </div>
+
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">css3有哪些新特性？</p>
+                    </span>
+                    <div class="example">
+                        <p>CSS3 实现圆角（border-radius:8px;），阴影（box-shadow:10px）,对文字加特效（text-shadow）,线性渐变（gradient），旋转（transform）</p>
+                        <p>transform:rotate(9deg) scale(0.85,0.90) translate(0px,-30px) skew(-9deg,0deg);//旋转，缩放，定位，倾斜</p>
+                        <p>增加了更多的 css 选择器 多背景 rgba</p>
+                    </div>
+                </div>
+
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">display:inline-block 什么时候会显示间隙？</p>
+                    </span>
+                    <div class="example">
+                        <p>移除空格，使用margin 负值、使用 font-size:0、letter-spacing 、word-spacing</p>
+                    </div>
+                </div>
+
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">使用 CSS 预处理器吗？</p>
+                    </span>
+                    <div class="example">
+                        <p>SASS</p>
+                    </div>
+                </div>
+                <!-- end -->
+
+            </div>
+
+
+
+
+            <h1 id="javascript">JAVASCRIPT</h1>
+
+            <div class="doc-wrap">
+
+                <!-- start -->
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">javascript的typeof返回哪些数据类型</p>
+                    </span>
+                    <div class="example">
+                        <p>Object number function boolean underfind</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">例举3种强制类型转换和2种隐式类型转换</p>
+                    </span>
+                    <div class="example">
+                        <p>强制（parseInt,parseFloat,number）</p>
+                        <p>隐式（== – ===）</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description"> split() join() 的区别</p>
+                    </span>
+                    <div class="example">
+                        <p>前者是切割成数组的形式，后者是将数组转换成字符串</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description"> 数组方法pop() push() unshift() shift()</p>
+                    </span>
+                    <div class="example">
+                        <p>Push()尾部添加 pop()尾部删除</p>
+                        <p>Unshift()头部添加 shift()头部删除</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">IE和标准下有哪些兼容性的写法</p>
+                    </span>
+                    <div class="example">
+                        <p>var ev = ev || window.event</p>
+                        <p>document.documentElement.clientWidth || document.body.clientWidth</p>
+                        <p>var target = ev.srcElement||ev.target</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">ajax请求的时候get 和post方式的区别</p>
+                    </span>
+                    <div class="example">
+                        <p>一个在url后面 一个放在虚拟载体里面</p>
+                        <p>有大小限制</p>
+                        <p>安全问题</p>
+                        <p>应用不同 一个是论坛等只需要请求的，一个是类似修改密码的</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">call和apply的区别</p>
+                    </span>
+                    <div class="example">
+                        <p>Object.call(this,obj1,obj2,obj3)</p>
+                        <p>Object.apply(this,arguments)</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">从一个字符串中解析出json对象,从一个对象解析出字符串</p>
+                    </span>
+                    <div class="example">
+                        <p>JSON.parse()</p>
+                        <p>JSON.stringify()</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">添加 删除 替换 插入到某个接点的方法</p>
+                    </span>
+                    <div class="example">
+                        <p>obj.appendChidl()</p>
+                        <p>obj.innersetBefore</p>
+                        <p>obj.replaceChild</p>
+                        <p>obj.removeChild</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">解释jsonp的原理，以及为什么不是真正的ajax</p>
+                    </span>
+                    <div class="example">
+                        <p>动态创建script标签，回调函数</p>
+                        <p>Ajax是页面无刷新请求数据操作</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">javascript的本地对象，内置对象和宿主对象</p>
+                    </span>
+                    <div class="example">
+                        <p>本地对象为array obj regexp等可以new实例化</p>
+                        <p>内置对象为gload Math 等不可以实例化的</p>
+                        <p>宿主为浏览器自带的document,window 等</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">document load 和document ready的区别</p>
+                    </span>
+                    <div class="example">
+                        <p>Document.onload 是在结构和样式加载完才执行js</p>
+                        <p>Document.ready原生种没有这个方法，jquery中有 $().ready(function)</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">”==”和“===”的不同</p>
+                    </span>
+                    <div class="example">
+                        <p>前者会自动转换类型</p>
+                        <p>后者不会</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">javascript的同源策略</p>
+                    </span>
+                    <div class="example">
+                        <p>一段脚本只能读取来自于同一来源的窗口和文档的属性，这里的同一来源指的是主机名、协议和端口号的组合</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">编写一个数组去重的方法</p>
+                    </span>
+                    <div class="example">
+                        <p><span></span><span class="kd">function</span> <span class="nx">oSort</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span>
+                            <span class="p">{</span><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="kd">var</span> <span class="nx">result</span> <span class="o">=</span><span class="p">{};</span><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="kd">var</span> <span class="nx">newArr</span><span class="o">=</span><span class="p">[];</span><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="nx">i</span><span class="o">&lt;</span><span class="nx">arr</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+                            <span class="p">{</span><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">[</span><span class="nx">arr</span><span class="p">])</span>
+                            <span class="p">{</span><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="nx">newArr</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arr</span><span class="p">)</span><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="nx">result</span><span class="p">[</span><span class="nx">arr</span><span class="p">]</span><span class="o">=</span><span class="mi">1</span><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="p">}</span><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="p">}</span><br/>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="k">return</span> <span class="nx">newArr</span><br/>
+                            <span class="p">}</span></p>
+
+                        <script>
+                            function oSort(arr){
+                                var result ={};
+                                var newArr=[];
+                                for(var i=0;i<arr.length;i++){
+                                    if(!result[arr])
+                                    {
+                                        newArr.push(arr)
+                                        result[arr]=1
+                                    }
+                                }
+                                return newArr
+                            }
+                        </script>
+                    </div>
+                </div>
+
+                <!-- end -->
+            </div>
+
+
+
+            <h1 id="http">HTTP协议</h1>
+            <div class="doc-wrap">
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">常用的HTTP方法有哪些？</p>
+                    </span>
+                    <div class="example">
+                        <p>GET： 用于请求访问已经被URI（统一资源标识符）识别的资源，可以通过URL传参给服务器</p>
+                        <p>POST：用于传输信息给服务器，主要功能与GET方法类似，但一般推荐使用POST方式。</p>
+                        <p>PUT： 传输文件，报文主体中包含文件内容，保存到对应URI位置。</p>
+                        <p>HEAD： 获得报文首部，与GET方法类似，只是不返回报文主体，一般用于验证URI是否有效。</p>
+                        <p>DELETE：删除文件，与PUT方法相反，删除对应URI位置的文件。</p>
+                        <p>OPTIONS：查询相应URI支持的HTTP方法。</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">GET方法与POST方法的区别</p>
+                    </span>
+                    <div class="example">
+                        <p>区别一：get重点在从服务器上获取资源，post重点在向服务器发送数据；</p>
+                        <p>区别二：get传输数据是通过URL请求，以field（字段）= value的形式，置于URL后，并用"?"连接，多个请求数据间用"&"连接，如http://127.0.0.1/Test/login.action?name=admin&password=admin，这个过程用户是可见的；
+                            post传输数据通过Http的post机制，将字段与对应值封存在请求实体中发送给服务器，这个过程对用户是不可见的；</p>
+                        <p>区别三： Get传输的数据量小，因为受URL长度限制，但效率较高；
+                            Post可以传输大量数据，所以上传文件时只能用Post方式；</p>
+                        <p>区别四： get是不安全的，因为URL是可见的，可能会泄露私密信息，如密码等；
+                            post较get安全性较高；</p>
+                        <p>区别五：get方式只能支持ASCII字符，向服务器传的中文字符可能会乱码。
+                            post支持标准字符集，可以正确传递中文字符。</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">HTTP请求报文与响应报文格式</p>
+                    </span>
+                    <div class="example">
+                        <p>请求报文包含三部分：</p>
+                        <p>a、请求行：包含请求方法、URI、HTTP版本信息</p>
+                        <p>b、请求首部字段</p>
+                        <p>c、请求内容实体</p>
+                        <p>响应报文包含三部分：</p>
+                        <p>a、状态行：包含HTTP版本、状态码、状态码的原因短语</p>
+                        <p>b、响应首部字段</p>
+                        <p>c、响应内容实体</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">常见的HTTP相应状态码</p>
+                    </span>
+                    <div class="example">
+                        <p>200：请求被正常处理</p>
+                        <p>204：请求被受理但没有资源可以返回</p>
+                        <p>206：客户端只是请求资源的一部分，服务器只对请求的部分资源执行GET方法，相应报文中通过Content-Range指定范围的资源。</p>
+                        <p>301：永久性重定向</p>
+                        <p>302：临时重定向</p>
+                        <p>303：与302状态码有相似功能，只是它希望客户端在请求一个URI的时候，能通过GET方法重定向到另一个URI上</p>
+                        <p>304：发送附带条件的请求时，条件不满足时返回，与重定向无关</p>
+                        <p>307：临时重定向，与302类似，只是强制要求使用POST方法</p>
+                        <p>400：请求报文语法有误，服务器无法识别</p>
+                        <p>401：请求需要认证</p>
+                        <p>403：请求的对应资源禁止被访问</p>
+                        <p>404：服务器无法找到对应资源</p>
+                        <p>503：服务器正忙</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">HTTP1.1版本新特性</p>
+                    </span>
+                    <div class="example">
+                        <p>a、默认持久连接节省通信量，只要客户端服务端任意一端没有明确提出断开TCP连接，就一直保持连接，可以发送多次HTTP请求</p>
+                        <p>b、管线化，客户端可以同时发出多个HTTP请求，而不用一个个等待响应</p>
+                        <p>c、断点续传原理</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">常见HTTP首部字段</p>
+                    </span>
+                    <div class="example">
+                        <p>a、通用首部字段（请求报文与响应报文都会使用的首部字段）</p>
+                        <p>Date：创建报文时间</p>
+                        <p>Connection：连接的管理</p>
+                        <p>Cache-Control：缓存的控制</p>
+                        <p>Transfer-Encoding：报文主体的传输编码方式</p>
+                        <p>b、请求首部字段（请求报文会使用的首部字段）</p>
+                        <p>Host：请求资源所在服务器</p>
+                        <p>Accept：可处理的媒体类型</p>
+                        <p>Accept-Charset：可接收的字符集</p>
+                        <p>Accept-Encoding：可接受的内容编码</p>
+                        <p>Accept-Language：可接受的自然语言</p>
+                        <p>c、响应首部字段（响应报文会使用的首部字段）</p>
+                        <p>Accept-Ranges：可接受的字节范围</p>
+                        <p>Location：令客户端重新定向到的URI</p>
+                        <p>Server：HTTP服务器的安装信息</p>
+                        <p>d、实体首部字段（请求报文与响应报文的的实体部分使用的首部字段）</p>
+                        <p>Allow：资源可支持的HTTP方法</p>
+                        <p>Content-Type：实体主类的类型</p>
+                        <p>Content-Encoding：实体主体适用的编码方式</p>
+                        <p>Content-Language：实体主体的自然语言</p>
+                        <p>Content-Length：实体主体的的字节数</p>
+                        <p>Content-Range：实体主体的位置范围，一般用于发出部分请求时使用</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">HTTP的缺点与HTTPS</p>
+                    </span>
+                    <div class="example">
+                        <p>a、通信使用明文不加密，内容可能被窃听</p>
+                        <p>b、不验证通信方身份，可能遭到伪装</p>
+                        <p>c、无法验证报文完整性，可能被篡改</p>
+                        <p>HTTPS就是HTTP加上加密处理（一般是SSL安全通信线路）+认证+完整性保护</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">HTTP优化</p>
+                    </span>
+                    <div class="example">
+                        <p>利用负载均衡优化和加速HTTP应用</p>
+                        <p>利用HTTP Cache来优化网站</p>
+                    </div>
+                </div>
+            </div>
+
+            <h1 id="know">对于前端的认识</h1>
+
+            <!-- 类型 -->
+            <div class="doc-wrap">
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">渐进增强和优雅降级</p>
+                    </span>
+                    <div class="example">
+                        <p>渐进增强 ：针对低版本浏览器进行构建页面，保证最基本的功能，然后再针对高级浏览器进行效果、交互等改进和追加功能达到更好的用户体验。</p>
+                        <p>渐进增强 优雅降级 ：一开始就构建完整的功能，然后再针对低版本浏览器进行兼容。</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">对前端模块化的认识</p>
+                    </span>
+                    <div class="example">
+                        <p>AMD 是 RequireJS 在推广过程中对模块定义的规范化产出。</p>
+                        <p>CMD 是 SeaJS 在推广过程中对模块定义的规范化产出。</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">Javascript垃圾回收方法</p>
+                    </span>
+                    <div class="example">
+                        <p>||标记清除（mark and sweep）</p>
+                        <p>这是JavaScript最常见的垃圾回收方式，当变量进入执行环境的时候，比如函数中声明一个变量，垃圾回收器将其标记为“进入环境”，当变量离开环境的时候（函数执行结束）将其标记为“离开环境”。</p>
+                        <p>垃圾回收器会在运行的时候给存储在内存中的所有变量加上标记，然后去掉环境中的变量以及被环境中变量所引用的变量（闭包），在这些完成之后仍存在标记的就是要删除的变量了</p>
+                        <p>||引用计数(reference counting)</p>
+                        <p>在低版本IE中经常会出现内存泄露，很多时候就是因为其采用引用计数方式进行垃圾回收。引用计数的策略是跟踪记录每个值被使用的次数，当声明了一个 变量并将一个引用类型赋值给该变量的时候这个值的引用次数就加1，如果该变量的值变成了另外一个，则这个值得引用次数减1，当这个值的引用次数变为0的时 候，说明没有变量在使用，这个值没法被访问了，因此可以将其占用的空间回收，这样垃圾回收器会在运行的时候清理掉引用次数为0的值占用的空间。</p>
+                        <p>在IE中虽然JavaScript对象通过标记清除的方式进行垃圾回收，但BOM与DOM对象却是通过引用计数回收垃圾的， 也就是说只要涉及BOM及DOM就会出现循环引用问题。</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">你觉得前端工程的价值体现在哪</p>
+                    </span>
+                    <div class="example">
+                        <p>为简化用户使用提供技术支持（交互部分）</p>
+                        <p>为多个浏览器兼容性提供支持</p>
+                        <p>为提高用户浏览速度（浏览器性能）提供支持</p>
+                        <p>为跨平台或者其他基于webkit或其他渲染引擎的应用提供支持</p>
+                        <p>为展示数据提供支持（数据接口） 变量并将一个引用类型赋值给该变量的时候这个值的引用次数就加1，如果该变量的值变成了另外一个，则这个值得引用次数减1，当这个值的引用次数变为0的时 候，说明没有变量在使用，这个值没法被访问了，因此可以将其占用的空间回收，这样垃圾回收器会在运行的时候清理掉引用次数为0的值占用的空间。</p>
+                    </div>
+                </div>
+
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">谈谈性能优化问题</p>
+                    </span>
+                    <div class="example">
+                        <p>代码层面：避免使用css表达式，避免使用高级选择器，通配选择器。</p>
+                        <p>缓存利用：缓存Ajax，使用CDN，使用外部js和css文件以便缓存，添加Expires头，服务端配置Etag，减少DNS查找等</p>
+                        <p>请求数量：合并样式和脚本，使用css图片精灵，初始首屏之外的图片资源按需加载，静态资源延迟加载。</p>
+                        <p>请求带宽：压缩文件，开启GZIP，</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">移动端性能优化</p>
+                    </span>
+                    <div class="example">
+                        <p>尽量使用css3动画，开启硬件加速。</p>
+                        <p>适当使用touch事件代替click事件。</p>
+                        <p>避免使用css3渐变阴影效果。</p>
+                        <p>可以用transform: translateZ(0)来开启硬件加速。</p>
+                        <p>不滥用Float。Float在渲染时计算量比较大，尽量减少使用</p>
+                        <p>不滥用Web字体。Web字体需要下载，解析，重绘当前页面，尽量减少使用。</p>
+                        <p>合理使用requestAnimationFrame动画代替setTimeout</p>
+                        <p>CSS中的属性（CSS3 transitions、CSS3 3D transforms、Opacity、Canvas、WebGL、Video）会触发GPU渲染，请合理使用。过渡使用会引发手机过耗电增加</p>
+                        <p>PC端的在移动端同样适用</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">你觉得jQuery或zepto源码有哪些写的好的地方</p>
+                    </span>
+                    <div class="example">
+                        <p>jquery源码封装在一个匿名函数的自执行环境中，有助于防止变量的全局污染，然后通过传入window对象参数，可以使window对象作为局部变量使用，好处是当jquery中访问window对象的时候，就不用将作用域链退回到顶层作用域了，从而可以更快的访问window对象。同样，传入undefined参数，可以缩短查找undefined时的作用域链。</p>
+                        <p>jquery将一些原型属性和方法封装在了jquery.prototype中，为了缩短名称，又赋值给了jquery.fn，这是很形象的写法。
+
+                            有一些数组或对象的方法经常能使用到，jQuery将其保存为局部变量以提高访问速度。
+
+                            jquery实现的链式调用可以节约代码，所返回的都是同一个对象，可以提高代码效率。</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">ES6的了解</p>
+                    </span>
+                    <div class="example">
+                        <p>新增模板字符串（为JavaScript提供了简单的字符串插值功能）、箭头函数（操作符左边为输入的参数，而右边则是进行的操作以及返回的值Inputs=>outputs。）、for-of（用来遍历数据—例如数组中的值。）arguments对象可被不定参数和默认参数完美代替。ES6将promise对象纳入规范，提供了原生的Promise对象。增加了let和const命令，用来声明变量。增加了块级作用域。let命令实际上就增加了块级作用域。ES6规定，var命令和function命令声明的全局变量，属于全局对象的属性；let命令、const命令、class命令声明的全局变量，不属于全局对象的属性。。还有就是引入module模块的概念</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">谈谈浮动和清除浮动</p>
+                    </span>
+                    <div class="example">
+                        <p>浮动的框可以向左或向右移动，直到他的外边缘碰到包含框或另一个浮动框的边框为止。由于浮动框不在文档的普通流中，所以文档的普通流的块框表现得就像浮动框不存在一样。浮动的块框会漂浮在文档普通流的块框上。</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">请你谈谈Cookie的弊端</p>
+                    </span>
+                    <div class="example">
+                        <p>cookie虽然在持久保存客户端数据提供了方便，分担了服务器存储的负担，但还是有很多局限性的。</p>
+                    </div>
+                </div>
+                <div class="demo-wrap">
+                    <span class="title">
+                        <p class="description">cookie 和session 的区别：</p>
+                    </span>
+                    <div class="example">
+                        <p> 1、cookie数据存放在客户的浏览器上，session数据放在服务器上。</p>
+                        <p> 2、cookie不是很安全，别人可以分析存放在本地的COOKIE并进行COOKIE欺骗
+
+                            考虑到安全应当使用session。</p>
+                        <p> 3、session会在一定时间内保存在服务器上。当访问增多，会比较占用你服务器的性能
+
+                            考虑到减轻服务器性能方面，应当使用COOKIE。</p>
+                        <p>4、单个cookie保存的数据不能超过4K，很多浏览器都限制一个站点最多保存20个cookie。
+                        </p>
+                        <p>5、所以个人建议：
+
+                            将登陆信息等重要信息存放为SESSION
+
+                            其他信息如果需要保留，可以放在COOKIE中
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+        </section>
+
+    </div>
+
+    <div class="navigation">
+        <div class="menu-wrap">
+            <ul id="nav">
+                <li class="current"><a href="#htmlCss">HTML+CSS</a></li>
+                <li><a href="#javascript">JAVASCRIPT</a></li>
+                <li><a href="#http">HTTP协议</a></li>
+                <li><a href="#know">对于前端的认识</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+
+    </footer>
+</main>
+
+
+
+<script src="scripts/jquery-3.1.0.min.js"></script>
+
+<script src="scripts/doc/jquery.nav.js"></script>
+
+<script src="scripts/doc/highlight.min.js"></script>
+
+<script src="scripts/doc/document.js"></script>
+
+
+
+
+</body>
+</html>
